@@ -2,6 +2,14 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+
+    id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
+
+    kotlin("plugin.serialization") version "2.0.21"
+    id("androidx.navigation.safeargs")
+
+    id("kotlin-parcelize")
 }
 
 android {
@@ -57,5 +65,25 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
+    // Compose navigations
+    implementation(libs.androidx.navigation.compose)
+
+    // AWS SDK
     implementation(libs.ec2)
+
+    // Kotlin serialization
+    implementation(libs.kotlinx.serialization.json)
+
+    // Hilt
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
+    implementation(libs.androidx.hilt.navigation.compose)
+
+    // Orbit MVI
+    implementation(libs.orbit.viewmodel)
+    implementation(libs.orbit.compose)
+}
+
+kapt {
+    correctErrorTypes = true
 }
