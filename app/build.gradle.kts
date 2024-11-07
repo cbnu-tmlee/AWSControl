@@ -1,3 +1,6 @@
+import java.io.FileInputStream
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -12,6 +15,10 @@ plugins {
     id("kotlin-parcelize")
 }
 
+val secretsPropertiesFile = rootProject.file("secrets.properties")
+val secretsProperties = Properties()
+secretsProperties.load(FileInputStream(secretsPropertiesFile))
+
 android {
     namespace = "kr.ac.cbnu.software.aws_control"
     compileSdk = 35
@@ -24,6 +31,17 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField(
+            "String",
+            "ACCESS_KEY_ID",
+            secretsProperties["ACCESS_KEY_ID"].toString()
+        )
+        buildConfigField(
+            "String",
+            "SECRET_ACCESS_KEY",
+            secretsProperties["SECRET_ACCESS_KEY"].toString()
+        )
     }
 
     buildTypes {
@@ -44,6 +62,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 }
 
