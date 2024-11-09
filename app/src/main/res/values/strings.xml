@@ -1,3 +1,27 @@
 <resources>
-    <string name="app_name">AWSControl</string>
+    <string name="app_name">클라우드컴퓨팅 Term Project</string>
+
+    <string name="list_instances">List Instances</string>
+    <string name="available_zones">Available Zones</string>
+    <string name="start_instances">Start Instances</string>
+    <string name="available_regions">Available Regions</string>
+    <string name="stop_instances">Stop Instances</string>
+    <string name="create_instance">Create Instance</string>
+    <string name="reboot_instance">Reboot Instances</string>
+    <string name="list_images">List Images</string>
+
+    <string name="terminate_instances">Terminate Instances</string>
+
+    <string name="start">인스턴스 시작</string>
+    <string name="stop">인스턴스 중지</string>
+    <string name="create">인스턴스 생성</string>
+    <string name="reboot">인스턴스 재부팅</string>
+    <string name="terminate">인스턴스 종료</string>
+
+    <string name="id">ID</string>
+    <string name="image">AMI</string>
+    <string name="image_id">AMI ID</string>
+    <string name="instance_type">유형</string>
+    <string name="instance_state">상태</string>
+    <string name="monitoring_state">모니터링</string>
 </resources>
