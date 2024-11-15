@@ -24,4 +24,7 @@
     <string name="instance_type">유형</string>
     <string name="instance_state">상태</string>
     <string name="monitoring_state">모니터링</string>
+    <string name="region_name">리전</string>
+    <string name="endpoint">엔드포인트</string>
+    <string name="owner">소유자</string>
 </resources>
