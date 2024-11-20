@@ -21,6 +21,14 @@ internal fun MainNavHost(
             },
             onAvailabilityZoneListClick = navController::navigateToAvailabilityZoneList,
             onRegionListClick = navController::navigateToRegionList,
+            onCreateInstanceClick = navController::navigateToCreateInstance,
+            onImageListClick = navController::navigateToImageList,
+            onSendCommandClick = {
+                navController.navigateToSendCommand(screenType = it)
+            },
+            onSendFileClick = navController::navigateToSendFile,
+            onConsoleOutputClick = navController::navigateToConsoleOutput,
+            onConsoleScreenshotClick = navController::navigateToConsoleScreenshot,
         )
 
         instanceListScreen(
@@ -30,6 +38,25 @@ internal fun MainNavHost(
             navController = navController,
         )
         regionListScreen(
+            navController = navController,
+        )
+        createInstanceScreen(
+            navController = navController,
+        )
+        imageListScreen(
+            navController = navController,
+        )
+
+        sendCommandScreen(
+            navController = navController,
+        )
+        sendFileScreen(
+            navController = navController,
+        )
+        consoleOutputScreen(
+            navController = navController,
+        )
+        consoleScreenshotScreen(
             navController = navController,
         )
     }
