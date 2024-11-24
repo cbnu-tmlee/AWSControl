@@ -1,6 +1,7 @@
 package kr.ac.cbnu.software.aws_control.di
 
 import aws.sdk.kotlin.runtime.auth.credentials.StaticCredentialsProvider
+import aws.sdk.kotlin.services.cloudwatch.CloudWatchClient
 import aws.sdk.kotlin.services.ec2.Ec2Client
 import aws.sdk.kotlin.services.ssm.SsmClient
 import dagger.Module
@@ -26,6 +27,15 @@ internal object AwsModule {
     fun provideSsmClient(
         staticCredentialsProvider: StaticCredentialsProvider
     ) = SsmClient {
+        region = "ap-northeast-2"
+        credentialsProvider = staticCredentialsProvider
+    }
+
+    @Provides
+    @Singleton
+    fun provideCloudWatchClient(
+        staticCredentialsProvider: StaticCredentialsProvider
+    ) = CloudWatchClient {
         region = "ap-northeast-2"
         credentialsProvider = staticCredentialsProvider
     }
