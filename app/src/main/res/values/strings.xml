@@ -11,6 +11,17 @@
     <string name="list_images">List Images</string>
 
     <string name="terminate_instances">Terminate Instances</string>
+    <string name="condor_status">Condor Status</string>
+    <string name="condor_submit">Condor Submit</string>
+    <string name="condor_q">Condor Queue</string>
+    <string name="send_command">Send Command</string>
+    <string name="send_file">Send File</string>
+    <string name="console_output">Console Output</string>
+    <string name="instance_screenshot">Instance Screenshot</string>
+    <string name="metric_data">Metric Data</string>
+    <string name="create_metric_alarm">Create Metric Alarm</string>
+    <string name="delete_metric_alarm">Delete Metric Alarm</string>
+    <string name="quit">Quit</string>
 
     <string name="start">인스턴스 시작</string>
     <string name="stop">인스턴스 중지</string>
@@ -27,4 +38,18 @@
     <string name="region_name">리전</string>
     <string name="endpoint">엔드포인트</string>
     <string name="owner">소유자</string>
+    <string name="name">이름</string>
+    <string name="metric">지표</string>
+
+    <string name="description">설명</string>
+
+    <string name="command">명령</string>
+    <string name="input_command">명령 입력</string>
+    <string name="job_description_file">작업명세서 파일</string>
+    <string name="input_job_description_file">작업명세서 파일 입력</string>
+    <string name="create_alarm">알람 추가</string>
+
+    <string name="send">전송</string>
+    <string name="ok">확인</string>
+    <string name="close">닫기</string>
 </resources>
