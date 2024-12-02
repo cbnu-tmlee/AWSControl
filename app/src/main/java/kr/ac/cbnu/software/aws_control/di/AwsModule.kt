@@ -8,6 +8,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import kr.ac.cbnu.software.aws_control.BuildConfig
 import javax.inject.Singleton
 
 @Module
@@ -38,5 +39,12 @@ internal object AwsModule {
     ) = CloudWatchClient {
         region = "ap-northeast-2"
         credentialsProvider = staticCredentialsProvider
+    }
+
+    @Provides
+    @Singleton
+    fun provideProfileCredentialsProvider() = StaticCredentialsProvider {
+        accessKeyId = BuildConfig.ACCESS_KEY_ID
+        secretAccessKey = BuildConfig.SECRET_ACCESS_KEY
     }
 }
