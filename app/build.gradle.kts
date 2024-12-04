@@ -89,6 +89,8 @@ dependencies {
 
     // AWS SDK
     implementation(libs.ec2)
+    implementation(libs.ssm)
+    implementation(libs.cloudwatch)
 
     // Kotlin serialization
     implementation(libs.kotlinx.serialization.json)
@@ -101,6 +103,14 @@ dependencies {
     // Orbit MVI
     implementation(libs.orbit.viewmodel)
     implementation(libs.orbit.compose)
+
+    // Coil
+    implementation(libs.coil.compose)
+
+    implementation(libs.vico.compose)
+    implementation(libs.vico.compose.m3)
+    implementation(libs.vico.core)
+    implementation(libs.vico.views)
 }
 
 kapt {
