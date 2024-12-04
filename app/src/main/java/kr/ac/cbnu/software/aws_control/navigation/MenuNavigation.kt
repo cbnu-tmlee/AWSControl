@@ -16,6 +16,12 @@ internal fun NavGraphBuilder.menuScreen(
     onRegionListClick: () -> Unit,
     onCreateInstanceClick: () -> Unit,
     onImageListClick: () -> Unit,
+    onSendCommandClick: (SendCommandScreenType) -> Unit,
+    onSendFileClick: () -> Unit,
+    onConsoleOutputClick: () -> Unit,
+    onConsoleScreenshotClick: () -> Unit,
+    onMetricDataClick: () -> Unit,
+    onCreateMetricAlarmClick: () -> Unit,
 ) {
     composable<MenuRoute> {
         MenuScreen(
@@ -24,6 +30,12 @@ internal fun NavGraphBuilder.menuScreen(
             onRegionListClick = onRegionListClick,
             onCreateInstanceClick = onCreateInstanceClick,
             onImageListClick = onImageListClick,
+            onSendCommandClick = onSendCommandClick,
+            onSendFileClick = onSendFileClick,
+            onConsoleOutputClick = onConsoleOutputClick,
+            onConsoleScreenshotClick = onConsoleScreenshotClick,
+            onCloudWatchClick = onMetricDataClick,
+            onCreateMetricAlarmClick = onCreateMetricAlarmClick,
         )
     }
 }

@@ -21,6 +21,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import kr.ac.cbnu.software.aws_control.R
 import kr.ac.cbnu.software.aws_control.presentation.composable.MenuItem
+import kotlin.system.exitProcess
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -30,6 +31,12 @@ internal fun MenuScreen(
     onRegionListClick: () -> Unit,
     onCreateInstanceClick: () -> Unit,
     onImageListClick: () -> Unit,
+    onSendCommandClick: (SendCommandScreenType) -> Unit,
+    onSendFileClick: () -> Unit,
+    onConsoleOutputClick: () -> Unit,
+    onConsoleScreenshotClick: () -> Unit,
+    onCloudWatchClick: () -> Unit,
+    onCreateMetricAlarmClick: () -> Unit,
 ) {
     Scaffold(
         modifier = Modifier.fillMaxSize(),
@@ -170,6 +177,165 @@ internal fun MenuScreen(
                             Text("9. ${stringResource(R.string.terminate_instances)}")
                         },
                         onClick = { onInstanceListClick(InstanceListScreenType.TERMINATE) },
+                    )
+                }
+                item {
+                    MenuItem(
+                        leadingContent = {
+                            Icon(
+                                painterResource(R.drawable.htcondor_icon),
+                                modifier = Modifier.size(24.dp),
+                                contentDescription = stringResource(R.string.condor_status),
+                            )
+                        },
+                        headlineContent = {
+                            Text("10. ${stringResource(R.string.condor_status)}")
+                        },
+                        onClick = { onSendCommandClick(SendCommandScreenType.CONDOR_STATUS) },
+                    )
+                }
+                item {
+                    MenuItem(
+                        leadingContent = {
+                            Icon(
+                                painterResource(R.drawable.htcondor_icon),
+                                modifier = Modifier.size(24.dp),
+                                contentDescription = stringResource(R.string.condor_submit),
+                            )
+                        },
+                        headlineContent = {
+                            Text("11. ${stringResource(R.string.condor_submit)}")
+                        },
+                        onClick = { onSendCommandClick(SendCommandScreenType.CONDOR_SUBMIT) },
+                    )
+                }
+                item {
+                    MenuItem(
+                        leadingContent = {
+                            Icon(
+                                painterResource(R.drawable.htcondor_icon),
+                                modifier = Modifier.size(24.dp),
+                                contentDescription = stringResource(R.string.condor_q),
+                            )
+                        },
+                        headlineContent = {
+                            Text("12. ${stringResource(R.string.condor_q)}")
+                        },
+                        onClick = { onSendCommandClick(SendCommandScreenType.CONDOR_Q) },
+                    )
+                }
+                item {
+                    MenuItem(
+                        leadingContent = {
+                            Icon(
+                                painterResource(R.drawable.baseline_terminal_24),
+                                contentDescription = stringResource(R.string.send_command),
+                            )
+                        },
+                        headlineContent = {
+                            Text("13. ${stringResource(R.string.send_command)}")
+                        },
+                        onClick = { onSendCommandClick(SendCommandScreenType.DEFAULT) },
+                    )
+                }
+                item {
+                    MenuItem(
+                        leadingContent = {
+                            Icon(
+                                painterResource(R.drawable.baseline_insert_drive_file_24),
+                                contentDescription = stringResource(R.string.send_file),
+                            )
+                        },
+                        headlineContent = {
+                            Text("14. ${stringResource(R.string.send_file)}")
+                        },
+                        onClick = onSendFileClick,
+                    )
+                }
+                item {
+                    MenuItem(
+                        leadingContent = {
+                            Icon(
+                                painterResource(R.drawable.baseline_notes_24),
+                                contentDescription = stringResource(R.string.console_output),
+                            )
+                        },
+                        headlineContent = {
+                            Text("15. ${stringResource(R.string.console_output)}")
+                        },
+                        onClick = onConsoleOutputClick,
+                    )
+                }
+                item {
+                    MenuItem(
+                        leadingContent = {
+                            Icon(
+                                painterResource(R.drawable.baseline_camera_alt_24),
+                                contentDescription = stringResource(R.string.instance_screenshot),
+                            )
+                        },
+                        headlineContent = {
+                            Text("14. ${stringResource(R.string.instance_screenshot)}")
+                        },
+                        onClick = onConsoleScreenshotClick,
+                    )
+                }
+                item {
+                    MenuItem(
+                        leadingContent = {
+                            Icon(
+                                painterResource(R.drawable.baseline_insert_chart_24),
+                                contentDescription = stringResource(R.string.metric_data),
+                            )
+                        },
+                        headlineContent = {
+                            Text("16. ${stringResource(R.string.metric_data)}")
+                        },
+                        onClick = onCloudWatchClick,
+                    )
+                }
+                item {
+                    MenuItem(
+                        leadingContent = {
+                            Icon(
+                                painterResource(R.drawable.baseline_add_alarm_24),
+                                contentDescription = stringResource(R.string.create_metric_alarm),
+                            )
+                        },
+                        headlineContent = {
+                            Text("17. ${stringResource(R.string.create_metric_alarm)}")
+                        },
+                        onClick = onCreateMetricAlarmClick,
+                    )
+                }
+                item {
+                    MenuItem(
+                        leadingContent = {
+                            Icon(
+                                painterResource(R.drawable.baseline_alarm_off_24),
+                                contentDescription = stringResource(R.string.delete_metric_alarm),
+                            )
+                        },
+                        headlineContent = {
+                            Text("18. ${stringResource(R.string.delete_metric_alarm)}")
+                        },
+                        onClick = onCloudWatchClick,
+                    )
+                }
+                item {
+                    MenuItem(
+                        leadingContent = {
+                            Icon(
+                                painterResource(R.drawable.baseline_directions_run_24),
+                                contentDescription = stringResource(R.string.quit),
+                            )
+                        },
+                        headlineContent = {
+                            Text("99. ${stringResource(R.string.quit)}")
+                        },
+                        onClick = {
+                            exitProcess(0)
+                        },
                     )
                 }
             },

@@ -29,6 +29,8 @@ internal fun MainNavHost(
             onSendFileClick = navController::navigateToSendFile,
             onConsoleOutputClick = navController::navigateToConsoleOutput,
             onConsoleScreenshotClick = navController::navigateToConsoleScreenshot,
+            onMetricDataClick = navController::navigateToMetricData,
+            onCreateMetricAlarmClick = navController::navigateToCreateMetricAlarm,
         )
 
         instanceListScreen(
@@ -57,6 +59,12 @@ internal fun MainNavHost(
             navController = navController,
         )
         consoleScreenshotScreen(
+            navController = navController,
+        )
+        metricDataScreen(
+            navController = navController,
+        )
+        createMetricAlarmScreen(
             navController = navController,
         )
     }
